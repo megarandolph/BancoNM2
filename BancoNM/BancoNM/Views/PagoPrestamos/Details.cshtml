@@ -1,0 +1,75 @@
+﻿@model BancoNM.PagoPrestamos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PagoPrestamos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cuota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cuota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.capital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.interes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.interes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prestamos.idPrestamo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prestamos.idPrestamo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPago }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

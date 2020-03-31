@@ -1,0 +1,59 @@
+﻿@model BancoNM.Prestamos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prestamos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plazo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plazo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tazaPorcAnual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tazaPorcAnual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cuotasM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cuotasM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.cedula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPrestamo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

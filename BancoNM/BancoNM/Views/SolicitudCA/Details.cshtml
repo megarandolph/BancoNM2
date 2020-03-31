@@ -1,0 +1,59 @@
+﻿@model BancoNM.SolicitudCA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SolicitudCA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresosM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresosM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.justiIngreM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.justiIngreM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.montoMin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.montoMin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.cedula)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idSolicitudCA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

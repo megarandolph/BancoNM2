@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BancoNM.Prestamos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plazo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tazaPorcAnual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuotasM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plazo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tazaPorcAnual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cuotasM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clientes.cedula)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPrestamo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPrestamo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPrestamo })
+        </td>
+    </tr>
+}
+
+</table>
