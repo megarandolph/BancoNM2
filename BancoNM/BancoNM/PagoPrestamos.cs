@@ -11,16 +11,24 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class PagoPrestamos
     {
         public int idPago { get; set; }
+        [DisplayName("Id Préstamo")]
         public Nullable<int> idPrestamo { get; set; }
+        [DisplayName("Id Cliente")]
         public Nullable<int> idCliente { get; set; }
+        [DisplayName("Fecha de Pago")]
         public Nullable<System.DateTime> fechaPago { get; set; }
+        [DisplayName("Cuota")]
         public Nullable<decimal> cuota { get; set; }
+        [DisplayName("Capital")]
         public Nullable<decimal> capital { get; set; }
+        [DisplayName("Interés")]
         public Nullable<decimal> interes { get; set; }
+        [DisplayName("Balance")]
         public Nullable<decimal> balance { get; set; }
     
         public virtual Clientes Clientes { get; set; }

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BancoNM.PagoPrestamos>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Consulta de pagos de pr&eacute;stamos</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por fecha de pago: <input type="date" name="fechaPago" id="fechaPago" />
+        Buscar por cuota: <input type="number" name="cuota" id="cuota" /><br />
+        Buscar por capital: <input type="number" name="capital" id="capital" />
+        Buscar por interes: <input type="number" name="interes" id="interes" /><br />
+        Buscar por balance: <input type="number" name="balance" id="balance" />
+        Buscar por c&eacute;dula del cliente: <input type="text" name="idCliente" id="idCliente" /><br />
+
+        <input type="submit" value="Buscar" />
+    </p>
+}
+
+<div>
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.capital)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.interes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prestamos.idPrestamo)
+        </th>
+        <th></th>
+    </tr>
+    
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cuota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.capital)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.interes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.balance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prestamos.idPrestamo)
+            </td>
+        </tr>
+    }
+
+</table>

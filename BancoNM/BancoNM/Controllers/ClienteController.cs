@@ -128,5 +128,48 @@ namespace BancoNM.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpGet]
+        public ActionResult Consulta()
+        {
+            var clientes = db.Clientes.Include(c => c.Nacionalidad);
+            return View(clientes.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Consulta(DateTime? fechaNacimiento, string profesion=null, string correoElectronico = null, string apellidoCliente=null, string nombreCliente = null, string cedulaCliente=null, string telefono=null)
+        {
+            var busqueda = from s in db.Clientes select s;
+            if(fechaNacimiento != null)
+            {
+                busqueda = busqueda.Where(f => f.fecha_nac == fechaNacimiento);
+            }
+            if (!string.IsNullOrEmpty(profesion))
+            {
+                busqueda = busqueda.Where(f => f.profesion.Equals(profesion));
+            }
+            if (!string.IsNullOrEmpty(correoElectronico))
+            {
+                busqueda = busqueda.Where(f => f.correo.Equals(correoElectronico));
+            }
+            if (!string.IsNullOrEmpty(apellidoCliente))
+            {
+                busqueda = busqueda.Where(f => f.apellido.Equals(apellidoCliente));
+            }
+            if (!string.IsNullOrEmpty(nombreCliente))
+            {
+                busqueda = busqueda.Where(f => f.nombre.Equals(nombreCliente));
+            }
+            if (!string.IsNullOrEmpty(cedulaCliente))
+            {
+                busqueda = busqueda.Where(f => f.cedula.StartsWith(cedulaCliente));
+            }
+            if (!string.IsNullOrEmpty(telefono))
+            {
+                busqueda = busqueda.Where(f => f.telefono.StartsWith(telefono));
+            }
+
+            return View(busqueda.ToList());
+        }
     }
 }

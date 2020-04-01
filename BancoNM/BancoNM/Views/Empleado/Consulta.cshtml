@@ -1,0 +1,106 @@
+﻿@model IEnumerable<BancoNM.Empleado>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Consultar Empleados</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por la c&eacute;dula del empleado: <input type="text" name="cedulaEmpleado" id="cedulaEmpleado"/>
+        Buscar por nombre: <input type="text" name="nombreEmpleado" id="nombreEmplado"/><br />
+        Buscar por apellido: <input type="text" name="apellidoEmpleado" id="apellidoEmpleado"/>
+        Buscar por fecha de nacimiento: <input type="date" name="fechaNacimiento" id="fechaNacimiento"/><br />
+        Buscar por correo: <input type="text" name="correoEmpleado" id="correoEmpleado"/>
+        Buscar por celular: <input type="text" name="celularEmpleado" id="celularEmpleado"/><br />
+        Buscar por fecha de ingreso: <input type="date" name="fechaIngreso" id="fechaIngreso"/>
+        Buscar por salario: <input type="number" name="salario" id="salario"/>
+    </p>
+    <input type="submit" value="Buscar" />
+}
+
+<div>
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaNac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.celular)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaIngreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargos.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamentos.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nacionalidad.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaNac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.salario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargos.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamentos.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nacionalidad.descripcion)
+            </td>
+        </tr>
+    }
+
+</table>

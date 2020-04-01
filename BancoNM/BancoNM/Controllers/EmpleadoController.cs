@@ -136,5 +136,53 @@ namespace BancoNM.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpGet]
+        public ActionResult Consulta()
+        {
+            var empleado = db.Empleado.Include(e => e.Cargos).Include(e => e.Departamentos).Include(e => e.Nacionalidad);
+            return View(empleado.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Consulta(int? salario, DateTime? fechaIngreso, DateTime? fechaNacimiento, 
+            string cedulaEmpleado =null, string nombreEmpleado=null, string apellidoEmpleado=null,
+            string correoEmpleado=null, string celularEmpleado=null)
+        {
+            var busqueda = from s in db.Empleado select s;
+            if(salario != null)
+            {
+                busqueda = busqueda.Where(f => f.salario == salario);
+            }
+            if(fechaIngreso != null)
+            {
+                busqueda = busqueda.Where(f => f.fechaIngreso == fechaIngreso);
+            }
+            if(fechaNacimiento!= null)
+            {
+                busqueda = busqueda.Where(f => f.fechaNac == fechaNacimiento);
+            }
+            if(!string.IsNullOrEmpty(cedulaEmpleado))
+            {
+                busqueda = busqueda.Where(f => f.cedula.StartsWith(cedulaEmpleado));
+            }
+            if (!string.IsNullOrEmpty(nombreEmpleado))
+            {
+                busqueda = busqueda.Where(f => f.nombre == nombreEmpleado);
+            }
+            if (!string.IsNullOrEmpty(apellidoEmpleado))
+            {
+                busqueda = busqueda.Where(f => f.apellido == apellidoEmpleado);
+            }
+            if (!string.IsNullOrEmpty(correoEmpleado))
+            {
+                busqueda = busqueda.Where(f => f.correo == correoEmpleado);
+            }
+            if (!string.IsNullOrEmpty(celularEmpleado))
+            {
+                busqueda = busqueda.Where(f => f.celular.StartsWith(celularEmpleado));
+            }
+            return View(busqueda.ToList());
+        }
     }
 }

@@ -132,5 +132,43 @@ namespace BancoNM.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpGet]
+        public ActionResult Consulta()
+        {
+            var cuentaA = db.CuentaA.Include(c => c.Clientes).Include(c => c.Monedas);
+            return View(cuentaA.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Consulta(int? numeroCuenta, int? moneda, int? balanceDisponible, int? balanceTotal, DateTime? ultimoCorte, bool? estado)
+        {
+            var busqueda = from s in db.CuentaA select s;
+            if(numeroCuenta != null)
+            {
+                busqueda = busqueda.Where(f => f.numCuenta == numeroCuenta);
+            }            
+            if(moneda != null)
+            {
+                busqueda = busqueda.Where(f => f.Monedas.idMoneda == moneda);
+            }
+            if (balanceDisponible != null)
+            {
+                busqueda = busqueda.Where(f => f.balanceDisp == balanceDisponible);
+            }
+            if (balanceTotal != null)
+            {
+                busqueda = busqueda.Where(f => f.balanceTotal == balanceTotal);
+            }
+            if (ultimoCorte != null)
+            {
+                busqueda = busqueda.Where(f => f.ultimoCorte == ultimoCorte);
+            }
+            if (estado != null)
+            {
+                busqueda = busqueda.Where(f => f.estado == estado);
+            }
+            return View(busqueda.ToList());
+        }
     }
 }

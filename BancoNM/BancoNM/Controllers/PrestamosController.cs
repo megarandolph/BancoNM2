@@ -128,5 +128,41 @@ namespace BancoNM.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpGet]
+        public ActionResult Consulta()
+        {
+            var prestamos = db.Prestamos.Include(p => p.Clientes);
+            return View(prestamos.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult Consulta(int? cuota, 
+            int? monto, int? taza, int? plazo, string cedulaCliente=null)
+        {
+            var busqueda = from s in db.Prestamos select s;           
+            if (cuota != null)
+            {
+                busqueda = busqueda.Where(f => f.cuotasM == cuota);
+            }
+            if(monto != null)
+            {
+                busqueda = busqueda.Where(f => f.monto == monto);
+            }            
+            if (plazo != null)
+            {
+                busqueda = busqueda.Where(f => f.plazo == plazo);
+            }
+            if (!string.IsNullOrEmpty(cedulaCliente))
+            {
+                busqueda = busqueda.Where(f => f.Clientes.cedula.StartsWith(cedulaCliente));
+            }
+            if (taza!=null)
+            {
+                busqueda = busqueda.Where(f => f.tazaPorcAnual == taza);
+            }
+            return View(busqueda.ToList());
+        }
+       
     }
 }

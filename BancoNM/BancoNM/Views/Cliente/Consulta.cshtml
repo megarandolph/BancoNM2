@@ -1,0 +1,87 @@
+﻿@model IEnumerable<BancoNM.Clientes>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Consultar clientes</h2>
+
+@using (Html.BeginForm())
+{
+<p>
+    Buscar por c&eacute;dula del cliente: <input type="text" name="cedulaCliente" id="cedulaCliente">
+    Buscar por nombre: <input type="text" name="nombreCliente" id="nombreCliente"><br />
+    Buscar por apellido: <input type="text" name="apellidoCliente" id="apellidoCliente">
+    Buscar por fecha de nacimiento: <input type="date" name="fechaNacimiento" id="fechaNacimiento" /><br />
+    Buscar por n&uacute;mero de tel&eacute;fono: <input type="text" name="telefono" id="telefono"/>
+    Buscar por correo electr&oacute;nico: <input type="text" name="correoElectronico" id="correoElectronico" /><br />
+    Buscar por profesi&oacute;n: <input type="text" name="profesion" id="profesion" />
+</p>
+    <input type="submit" value="Buscar" />
+}
+
+<div>
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_nac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profesion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nacionalidad.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_nac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.profesion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nacionalidad.descripcion)
+            </td>
+        </tr>
+    }
+
+</table>

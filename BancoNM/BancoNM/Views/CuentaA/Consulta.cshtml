@@ -1,0 +1,91 @@
+﻿@model IEnumerable<BancoNM.CuentaA>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Consulta de cuentas</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar por n&uacute;mero de cuenta: <input type="number" name="numeroCuenta" id="numeroCuenta" placeholder="N. Cuenta" />
+        Buscar por estado: <select name="estado" id="estado">
+            <option selected="selected" value>Sin establecer</option>
+            <option value="true">Verdadero</option>
+            <option value="false">Falso</option>
+        </select><br />
+        Buscar por moneda:
+        <select name="moneda" id="moneda">
+            <option value>Tipo de moneda</option>
+            <option value="1">Peso Dominicano</option>
+            <option value="2">Euro</option>
+            <option value="3">Dólar Estado Unidense</option>
+        </select>
+        Buscar por balance disponible: <input type="number" name="balanceDisponible" id="balanceDisponible" placeholder="Balance Disponible" /><br />
+        Buscar por balance total: <input type="number" name="balanceTotal" id="balanceTotal" placeholder="Balance Total" />
+        Buscar por &uacute;ltimo corte: <input type="date" name="ultimoCorte" id="ultimoCorte" />
+
+    </p>
+    <input type="submit" value="Buscar" />
+}
+
+<div>
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.numCuenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.balanceDisp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.balanceTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ultimoCorte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Monedas.descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.numCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.balanceDisp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.balanceTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ultimoCorte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monedas.descripcion)
+            </td>
+        </tr>
+    }
+
+</table>

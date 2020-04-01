@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BancoNM.Prestamos>
+
+@{
+    ViewBag.Title = "Consulta";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Consulta de Pr&eacute;stamos</h2>
+
+@using (Html.BeginForm())
+{
+<p>    
+    Buscar por c&eacute;dula del cliente: <input type="number" name="cedulaCliente" id="cedulaCliente" />
+    Buscar por cuota mensual: <input type="number" name="cuota" id="cuota" /><br />
+    Buscar por monto: <input type="number" name="monto" id="monto" />
+    Buscar por taza anual: <input type="number" name="taza" id="taza" /><br />
+    Buscar por plazo: <input type="number" name="plazo" id="plazo" />
+    <br />
+    <input type="submit" value="Buscar" />
+</p>
+    
+    
+}
+
+<div>
+    @Html.ActionLink("Volver al listado", "Index")
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plazo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tazaPorcAnual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuotasM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.plazo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tazaPorcAnual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cuotasM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.cedula)
+            </td>
+        </tr>
+    }
+
+</table>
