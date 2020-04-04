@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_compartido.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Inicio</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo", "crear")
 </p>
 <table class="table">
     <tr>
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idDepartamento }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idDepartamento }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idDepartamento })
+            @Html.ActionLink("Edit", "Editar", new { id=item.idDepartamento }) |
+            @Html.ActionLink("Details", "Detalles", new { id=item.idDepartamento }) |
+            @Html.ActionLink("Delete", "Borrar", new { id=item.idDepartamento })
         </td>
     </tr>
 }

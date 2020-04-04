@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_compartido.cshtml";
 }
 
-<h2>Index</h2>
+    <h2>Inicio</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -48,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.Clientes.cedula)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idSolicitudCA }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idSolicitudCA }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idSolicitudCA })
+            @Html.ActionLink("Edit", "Editar", new { id = item.idSolicitudCA }) |
+            @Html.ActionLink("Details", "Detalles", new { id = item.idSolicitudCA }) |
+            @Html.ActionLink("Delete", "Borrar", new { id = item.idSolicitudCA })
         </td>
     </tr>
 }
