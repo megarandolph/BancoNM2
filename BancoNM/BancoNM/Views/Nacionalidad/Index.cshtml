@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Editar", new { id=item.idNacionalidad }) |
-            @Html.ActionLink("Details", "Detalles", new { id=item.idNacionalidad }) |
-            @Html.ActionLink("Delete", "Borrar", new { id=item.idNacionalidad })
+            @Html.ActionLink("Editar", "Edit", new { id = item.idNacionalidad }) |
+            @Html.ActionLink("Detalles", "Details", new { id =item.idNacionalidad }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.idNacionalidad })
         </td>
     </tr>
 }

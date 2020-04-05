@@ -48,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.Clientes.cedula)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Editar", new { id = item.idSolicitudCA }) |
-            @Html.ActionLink("Details", "Detalles", new { id = item.idSolicitudCA }) |
-            @Html.ActionLink("Delete", "Borrar", new { id = item.idSolicitudCA })
+            @Html.ActionLink("Editar", "Edit", new { id = item.idSolicitudCA }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.idSolicitudCA }) |
+            @Html.ActionLink("Borrar", "Delete", new { id = item.idSolicitudCA })
         </td>
     </tr>
 }
