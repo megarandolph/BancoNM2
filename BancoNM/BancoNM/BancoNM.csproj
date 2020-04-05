@@ -204,6 +204,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bg1.jpg" />
+    <Content Include="Content\images\footerLines.png" />
+    <Content Include="Content\images\footerRd.gif" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logoFooter1.gif" />
+    <Content Include="Content\images\menu-h-bg.gif" />
+    <Content Include="Content\images\nortic.png" />
+    <Content Include="Content\images\parent.png" />
+    <Content Include="Content\images\repDom.png" />
+    <Content Include="Content\images\searchButton.gif" />
+    <Content Include="Content\images\separator.gif" />
+    <Content Include="Content\images\slideShadow.png" />
+    <Content Include="Content\template.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -227,6 +240,9 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\_bootswatch.scss" />
+    <Content Include="Content\_variables.scss" />
+    <Content Include="Content\mixins.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

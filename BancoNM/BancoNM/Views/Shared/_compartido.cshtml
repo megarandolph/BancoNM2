@@ -1,46 +1,198 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="[SE DEBE ESPECIFICAR EL LENGUAJE]" lang="[SE DEBE ESPECIFICAR EL LENGUAJE]" dir="[SE DEBE ESPECIFICAR LA DIRECCION // ltr (left to right) o rtl (right to left)]">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>[TITULO DE PAGINA ACTUAL]</title>
+
+    <link href="~/Content/template.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    @*<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+<body>
+    <div class="bg1" style="width: 100%;
+    height: auto;
+    display: table;
+    background: url(../../Content/images/bg1.jpg) repeat;">
+        <div class="main-wrapp">
+            <div class="headerBox">
+                <div class="logo">
+                    <a href="#" target="_self">
+                        <!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]-->
+                        <!--[SUSTITUIR ARCHIVO "logo.png" POR EL LOGO Y NOMBRE DE LA INSTITUCION]-->
+                        <img src="~/Content/images/logo.png" width="520" height="130" title="[ESPECIFICAR EL NOMBRE DE LA IMAGEN]" alt="[ESPECIFICAR EL ATRIBUTO ALTERNATICO]">
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                </div><!--end logo-->
+                <div class="headerBoxBox1">
+                    <div class="repDom" style="width: 100%;height: 34px;background: url(../../Content/images/repDom.png) no-repeat top right;float: right;margin: 20px 0 0 0;"></div>
+                    <div class="pSearch">
+                        <!--[COLOCAR BUSCADOR EN ESTA PARTE]-->
+                        <div class="search">
+                            <input name="search" type="text" id="mod-search-searchword">
+                            <input name="search" type="image" src="~/Content/images/searchButton.gif">
+                        </div><!--end search-->
+                    </div><!--end pSearch-->
+                    <div class="navMenu">
+                        <!--[COLOCAR EN ESTA PARTE EL MENU DE NAVEGACION FACIL]-->
+                        <ul class="menu">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Mapa de sitio</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul><!--end menu-->
+                    </div><!--end navMenu-->
+                </div><!--end headerBoxBox1-->
+            </div><!--end headerBox-->
+
+            <div class="menu-h">
+                <div class="menu-h-Box" style="width:85.4%;height:60px;background:url(../../Content/images/menu-h-bg.gif);">
+                    <ul class="menu" style="margin:15px;padding-left:250px;">
+                        <li><a href="#"></a></li>
+                        <li><a href="#">Menu 1</a></li>
+                        <li><a href="#">Menu 2</a></li>
+                        <li class="parent" style="background: url(../../Content/images/parent.png) no-repeat 97% 3px;padding: 0 22px 0 0;">
+                            <a href="#">Menu 3</a>
+                            <ul>
+                                <li><a href="#">Sub menu 1</a></li>
+                                <li><a href="#">Sub menu 2</a></li>
+                                <li><a href="#">Sub menu 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"></a></li>
+
+                    </ul><!--end menu-->
+                </div><!--end menu-h-Box-->
+            </div><!--end menu-h-->
+
+            <div class="contentBoxMaster">
+                <div class="contentBoxMasterBox1">
+                    <div class="contentMaster">
+
+                        <div class="container body-content">
+                            @RenderBody()
+                            <hr />
+                        </div>
+
+                    </div><!--end contentMaster-->
+                </div><!--end contentBoxMasterBox1-->
+            </div><!--end contentBoxMaster-->
+
+        </div><!--end main-wrapp-->
+    </div><!--end bg1-->
+    <div class="main-wrapp">
+        <div class="contentBoxMasterBox1" id="footer">
+
+            <ul id="linesLogos">
+                <li id="line" style="width: 1080px; background: url(../../Content/images/footerLines.png); "></li>
+              
+
+            </ul><!--end linesLogos-->
+
+            <div class="clr"></div>
+
+            <ul id="infoFooter">
+                <li id="space">&nbsp;</li>
+                <li id="info">
+                    <a href="#">[NOMBRE COMPLETO DE LA INSTITUCION CON LAS SIGLAS AL FINAL]</a><!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]--><br>
+                    [DIRECCION COMPLETA DE LA INSTITUCION]<br>
+                    [TELEFONOS Y FAX DE LA INSTITUCION]<br>
+                    <span>&copy; [AÑO ACTUAL] Todos los Derechos Reservados</span>
+                </li><!--end info-->
+                <li id="space">
+                    <img src="~/Content/images/nortic.png"/><!--[RESERVADO PARA SELLO DE CERTIFICACION DE LA NORTIC A2]-->
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>            
-        </div>
-    </nav>*@
-    <div>
-        @RenderBody()
-    </div>
+            </ul><!--end infoFooter-->
+
+        </div><!--end contentBoxMasterBox1-->
+    </div><!--end main-wrapp-->
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+
+
+
+
+
+
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home/index">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li class="dropdown open">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
+                                    Admin <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Videojuegos", "Index", "Videojuegos")</li>
+                                    <li>@Html.ActionLink("Generos", "Index", "Generos")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@

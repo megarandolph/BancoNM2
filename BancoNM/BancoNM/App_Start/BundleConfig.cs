@@ -24,7 +24,9 @@ namespace BancoNM
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/bootswatch.css",
+                      "~/Content/template.css"));
         }
     }
 }
