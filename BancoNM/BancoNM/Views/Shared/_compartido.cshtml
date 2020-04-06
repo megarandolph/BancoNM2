@@ -3,9 +3,11 @@
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>[TITULO DE PAGINA ACTUAL]</title>
+    <title>Banco Nuevo Mundo</title>
 
     <link href="~/Content/template.css" rel="stylesheet" />
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -45,20 +47,21 @@
             </div><!--end headerBox-->
 
             <div class="menu-h">
-                <div class="menu-h-Box" style="width:85.4%;height:60px;background:url(../../Content/images/menu-h-bg.gif);">
-                    <ul class="menu" style="margin:15px;padding-left:300px;">
+                <div class="menu-h-Box" style="width:100%;height:60px;background:url(../../Content/images/menu-h-bg.gif);">
+                    <ul class="menu" style="margin:15px;padding-left:280px;">
                         <li><a href="#"></a></li>
                         <li><a href="/Home/Index">Inicio</a></li>
                         <li><a href="/Home/about">Sobre nosotros</a></li>
                         <li class="parent" style="background: url(../../Content/images/parent.png) no-repeat 97% 3px;padding: 0 22px 0 0;">
                             <a href="#">Servicios</a>
                             <ul>
-                                <li><a href="#">Solicitudes</a></li>
-                                <li><a href="#">Pago de prestamos</a></li>
-                                <li><a href="#">Consultas</a></li>
-                                <li><a href="#">Mantenimientos</a></li>
+                                <li><a href="/Navegacion/solicitudes">Solicitudes</a></li>
+                                <li><a href="/account/login1">Pago de prestamos</a></li>
+                                <li><a href="/Navegacion/Consultas">Consultas</a></li>
+                                <li><a href="/Navegacion/Mantenimientos">Mantenimientos</a></li>
                             </ul>
                         </li>
+                        <li><a href="/Home/Contact">Contacto</a></li>
                         <li><a href="#"></a></li>
 
                     </ul><!--end menu-->
@@ -85,7 +88,7 @@
 
             <ul id="linesLogos">
                 <li id="line" style="width: 1080px; background: url(../../Content/images/footerLines.png); "></li>
-              
+
 
             </ul><!--end linesLogos-->
 
@@ -97,18 +100,19 @@
                     <a href="#">[BANCO NUEVO MUNDO (BNM)]</a><!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]--><br>
                     [CALLE GUSTAVO MEJIA RICART #145, NACO, SANTO DOMINGO, DISTRITO NACIONAL, RD]<br>
                     [TELEFONOS (809-552-1141) (809-502-1241) FAX (911010008)]<br>
-                <span>&copy; [2020] Todos los Derechos Reservados</span>
+                    <span>&copy; [2020] Todos los Derechos Reservados</span>
                 </li><!--end info-->
                 <li id="space">
-                    <img src="~/Content/images/nortic.png"/><!--[RESERVADO PARA SELLO DE CERTIFICACION DE LA NORTIC A2]-->
+                    <img src="~/Content/images/nortic.png" /><!--[RESERVADO PARA SELLO DE CERTIFICACION DE LA NORTIC A2]-->
                 </li>
             </ul><!--end infoFooter-->
 
         </div><!--end contentBoxMasterBox1-->
     </div><!--end main-wrapp-->
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datatables")
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -21,7 +21,12 @@ namespace BancoNM.Controllers
         {
             return View();
         }
-        public ActionResult PagoPrestamo()
+
+        public ActionResult Mantenimientos_()
+        {
+            return View();
+        }
+        public ActionResult Solicitudes_()
         {
             return View();
         }

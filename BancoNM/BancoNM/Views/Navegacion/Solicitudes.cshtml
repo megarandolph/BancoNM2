@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Solicitudes";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Solicitudes</h2>
+<div class="contentBoxMaster">
+    <div class="contentBoxMasterBox1">
+        <div class="contentMaster">
+
+
+
+            <div class="clr"></div>
+
+            <div class="panelIzquierdo">
+                <div class="btn-group-vertical">
+                    <a href="/Cliente/Create" class="btn btn-success" style="width:200px">Registrarse como cliente</a>
+                </div>
+            </div><!--end panelIzquierdo-->
+
+            <div class="panelCentral" style="width:750px;">
+                <div class="jumbotron">
+                    <h1 class="display-3" style="color:white;">Eres Clientes?</h1>
+                    <p class="lead" style="color:white;">Si eres cliente presiona este boton y te llevara a la solitudes.</p>
+                    <a href="/Navegacion/Solicitudes_" class="btn btn-success">Si</a>
+                    <hr class="my-4">
+                    <p class="lead" style="color:white;">de lo contrario presione aqui para registrarte</p>
+                        <a href="/Cliente/Create" class="btn btn-success">No</a>
+
+                </div>
+            </div><!--end panelCentral-->
+
+
+
+        </div><!--end contentMaster-->
+    </div><!--end contentBoxMasterBox1-->
+</div><!--end contentBoxMaster-->

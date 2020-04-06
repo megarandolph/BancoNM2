@@ -27,6 +27,15 @@ namespace BancoNM
                       "~/Content/site.css",
                       "~/Content/bootswatch.css",
                       "~/Content/template.css"));
+            bundles.Add(new ScriptBundle("~/bundles/datatables").Include(
+                                    "~/Scripts/DataTables/jquery.dataTables.min.js",
+                                    "~/Scripts/DataTables/dataTables.bootstrap.js",
+                                    "~/Scripts/DataTables/jszip.min.js",
+                                    "~/Scripts/DataTables/pdfmake.min.js",
+                                    "~/Scripts/DataTables/vfs_fonts.js"));
+
+            bundles.Add(new StyleBundle("~/Content/datatables").Include(
+                      "~/Content/DataTables/css/dataTables.bootstrap.css"));
         }
     }
 }

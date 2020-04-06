@@ -54,7 +54,7 @@ namespace BancoNM.Controllers
             {
                 db.Prestamos.Add(prestamos);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("home","Index");
             }
 
             ViewBag.idCliente = new SelectList(db.Clientes, "idCliente", "cedula", prestamos.idCliente);

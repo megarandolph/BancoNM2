@@ -8,9 +8,10 @@
 <h2>Inicio</h2>
 
 <p>
-    @Html.ActionLink("Ingresar nuevo", "Create")
+    @Html.ActionLink("Ingresar nuevo", "Create")<br /><br />
+    <a href="/navegacion/Mantenimientos_" class="btn btn-success">Volver a los mantenimientos</a>
 </p>
-<table class="table">
+<table class="table table-dark">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.descripcion)
