@@ -15,21 +15,21 @@
         <EntityTypeShape EntityType="BancoNMModel.Monedas" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="BancoNMModel.Nacionalidad" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="BancoNMModel.PagoPrestamos" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="BancoNMModel.Prestamos" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="BancoNMModel.SolicitudCA" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
         <AssociationConnector Association="BancoNMModel.FK__Empleado__idCarg__2E1BDC42" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__Clientes__idNaci__108B795B" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__CuentaA__idClien__1ED998B2" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__PagoPrest__idCli__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="BancoNMModel.FK__Prestamos__idCli__15502E78" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__Solicitud__idCli__1A14E395" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__CreditoCA__numCu__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__CuentaA__idMoned__1FCDBCEB" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__DebitoCA__numCue__29572725" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__Empleado__idDepa__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="BancoNMModel.FK__Empleado__idNaci__300424B4" ManuallyRouted="false" />
-        <AssociationConnector Association="BancoNMModel.FK__PagoPrest__idPre__34C8D9D1" ManuallyRouted="false" />
         <EntityTypeShape EntityType="BancoNMModel.Usuarios" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BancoNMModel.Prestamos" Width="1.5" PointX="5.25" PointY="14.5" />
+        <AssociationConnector Association="BancoNMModel.FK__Prestamos__idCli__15502E78" />
+        <AssociationConnector Association="BancoNMModel.FK__PagoPrest__idPre__34C8D9D1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

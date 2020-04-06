@@ -41,6 +41,7 @@ namespace BancoNM.Controllers
         {
             ViewBag.idCliente = new SelectList(db.Clientes, "idCliente", "cedula");
             ViewBag.idPrestamo = new SelectList(db.Prestamos, "idPrestamo", "idPrestamo");
+           
             return View();
         }
 

@@ -11,8 +11,7 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class CuentaA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,26 +20,20 @@ namespace BancoNM
             this.CreditoCA = new HashSet<CreditoCA>();
             this.DebitoCA = new HashSet<DebitoCA>();
         }
-        
-        [DisplayName("Número Cuenta")]
+    
         public int numCuenta { get; set; }
         public Nullable<int> idCliente { get; set; }
-        [DisplayName("Moneda")]
         public Nullable<int> idMoneda { get; set; }
-        [DisplayName("Estado")]
         public Nullable<bool> estado { get; set; }
-        [DisplayName("Balance Disponible")]
         public Nullable<decimal> balanceDisp { get; set; }
-        [DisplayName("Balance Total")]
         public Nullable<decimal> balanceTotal { get; set; }
-        [DisplayName("Último Corte")]
         public Nullable<System.DateTime> ultimoCorte { get; set; }
-        
+    
         public virtual Clientes Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CreditoCA> CreditoCA { get; set; }        
+        public virtual ICollection<CreditoCA> CreditoCA { get; set; }
         public virtual Monedas Monedas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DebitoCA> DebitoCA { get; set; }
     }
 }

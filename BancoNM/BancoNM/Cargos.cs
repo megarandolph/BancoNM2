@@ -11,8 +11,7 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class Cargos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +19,8 @@ namespace BancoNM
         {
             this.Empleado = new HashSet<Empleado>();
         }
-
-        [DisplayName("Id Cargo")]
+    
         public int idCargo { get; set; }
-        [DisplayName("Descripción")]
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

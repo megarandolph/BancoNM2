@@ -35,8 +35,8 @@ namespace BancoNM
         public virtual DbSet<Monedas> Monedas { get; set; }
         public virtual DbSet<Nacionalidad> Nacionalidad { get; set; }
         public virtual DbSet<PagoPrestamos> PagoPrestamos { get; set; }
-        public virtual DbSet<Prestamos> Prestamos { get; set; }
         public virtual DbSet<SolicitudCA> SolicitudCA { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<Prestamos> Prestamos { get; set; }
     }
 }

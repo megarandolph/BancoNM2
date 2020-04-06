@@ -11,8 +11,7 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class Nacionalidad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +20,8 @@ namespace BancoNM
             this.Clientes = new HashSet<Clientes>();
             this.Empleado = new HashSet<Empleado>();
         }
-        
+    
         public int idNacionalidad { get; set; }
-        [DisplayName("Nacionalidad")]
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

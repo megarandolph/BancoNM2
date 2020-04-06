@@ -11,8 +11,7 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
+    
     public partial class Prestamos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,18 +19,12 @@ namespace BancoNM
         {
             this.PagoPrestamos = new HashSet<PagoPrestamos>();
         }
-        
-        [DisplayName("Id Préstamo")]
+    
         public int idPrestamo { get; set; }
-        [DisplayName("Id del Cliente")]
         public Nullable<int> idCliente { get; set; }
-        [DisplayName("Monto")]
         public Nullable<decimal> monto { get; set; }
-        [DisplayName("Plazo")]
         public Nullable<int> plazo { get; set; }
-        [DisplayName("Taza Anual")]
-        public Nullable<int> tazaPorcAnual { get; set; }
-        [DisplayName("Cuotas Mensuales")]
+        public Nullable<decimal> tazaPorcAnual { get; set; }
         public Nullable<decimal> cuotasM { get; set; }
     
         public virtual Clientes Clientes { get; set; }
