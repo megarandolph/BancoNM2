@@ -34,9 +34,7 @@ namespace BancoNM.Controllers
             }
             else
             {
-
                 return RedirectToAction("Mantenimientos_","Navegacion");
-
             }
         }
         [HttpPost]
