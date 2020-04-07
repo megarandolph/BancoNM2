@@ -284,6 +284,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Usp_PagoPrestamo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPrestamo" Type="int" Mode="In" />
+          <Parameter Name="IdCliente" Type="int" Mode="In" />
+          <Parameter Name="fechaPago" Type="date" Mode="In" />
+          <Parameter Name="cuota" Type="money" Mode="In" />
+          <Parameter Name="capital" Type="money" Mode="In" />
+          <Parameter Name="interes" Type="money" Mode="In" />
+          <Parameter Name="balance" Type="money" Mode="In" />
+        </Function>
         <EntityContainer Name="BancoNMModelStoreContainer">
           <EntitySet Name="Cargos" EntityType="Self.Cargos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
@@ -670,6 +679,15 @@
             <End Role="Prestamos" EntitySet="Prestamos" />
             <End Role="PagoPrestamos" EntitySet="PagoPrestamos" />
           </AssociationSet>
+          <FunctionImport Name="Usp_PagoPrestamo">
+            <Parameter Name="idPrestamo" Mode="In" Type="Int32" />
+            <Parameter Name="IdCliente" Mode="In" Type="Int32" />
+            <Parameter Name="fechaPago" Mode="In" Type="DateTime" />
+            <Parameter Name="cuota" Mode="In" Type="Decimal" />
+            <Parameter Name="capital" Mode="In" Type="Decimal" />
+            <Parameter Name="interes" Mode="In" Type="Decimal" />
+            <Parameter Name="balance" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Usuarios">
           <Key>
@@ -871,6 +889,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Usp_PagoPrestamo" FunctionName="BancoNMModel.Store.Usp_PagoPrestamo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

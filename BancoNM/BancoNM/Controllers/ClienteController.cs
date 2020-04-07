@@ -54,7 +54,7 @@ namespace BancoNM.Controllers
             {
                 db.Clientes.Add(clientes);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","home");
             }
 
             ViewBag.idNacionalidad = new SelectList(db.Nacionalidad, "idNacionalidad", "descripcion", clientes.idNacionalidad);

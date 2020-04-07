@@ -628,6 +628,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Login1.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\ShortDateTime.cshtml" />
+    <Content Include="Views\PagoPrestamos\IndexCreate.cshtml" />
+    <Content Include="Views\PagoPrestamos\PagoPrestamo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

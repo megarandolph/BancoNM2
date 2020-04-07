@@ -36,12 +36,61 @@ namespace BancoNM.Controllers
             return View(pagoPrestamos);
         }
 
-        // GET: PagoPrestamos/Create
-        public ActionResult Create()
+        public ActionResult IndexCreate()
+        {
+            var prestamos = db.Prestamos.Include(p => p.Clientes);
+            return View(prestamos.ToList());
+        }
+
+
+        public ActionResult PagoPrestamo(int? id) 
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Prestamos prestamos = db.Prestamos.Find(id);
+            if (prestamos == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.idCliente = new SelectList(db.Clientes, "idCliente", "cedula", prestamos.idCliente);
+            return View(prestamos);
+        }
+
+        [HttpPost]
+        public JsonResult PagoPrestamo(PagoPrestamos DatosA)
+        {
+            var success = 1;
+
+            using (var context = new BancoNMEntities())
+            {
+                PagoPrestamos pagoPrestamos = new PagoPrestamos()
+                {
+                    idPrestamo = DatosA.idPrestamo,
+                    idCliente = DatosA.idCliente,
+                    fechaPago = DatosA.fechaPago,
+                    cuota = DatosA.cuota,
+                    capital = DatosA.capital,
+                    interes = DatosA.interes,
+                    balance = DatosA.balance
+
+                };
+
+                context.PagoPrestamos.Add(pagoPrestamos);
+                context.SaveChanges();
+
+
+                return Json(success);
+            }
+        }
+
+            // GET: PagoPrestamos/Create
+            public ActionResult Create()
         {
             ViewBag.idCliente = new SelectList(db.Clientes, "idCliente", "cedula");
             ViewBag.idPrestamo = new SelectList(db.Prestamos, "idPrestamo", "idPrestamo");
-           
+            ViewBag.monto = new SelectList(db.Prestamos, "idPrestamo", "monto");
             return View();
         }
 

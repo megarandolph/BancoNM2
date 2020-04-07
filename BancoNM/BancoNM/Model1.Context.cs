@@ -12,6 +12,8 @@ namespace BancoNM
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BancoNMEntities : DbContext
     {
@@ -38,5 +40,38 @@ namespace BancoNM
         public virtual DbSet<SolicitudCA> SolicitudCA { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Prestamos> Prestamos { get; set; }
+    
+        public virtual int Usp_PagoPrestamo(Nullable<int> idPrestamo, Nullable<int> idCliente, Nullable<System.DateTime> fechaPago, Nullable<decimal> cuota, Nullable<decimal> capital, Nullable<decimal> interes, Nullable<decimal> balance)
+        {
+            var idPrestamoParameter = idPrestamo.HasValue ?
+                new ObjectParameter("idPrestamo", idPrestamo) :
+                new ObjectParameter("idPrestamo", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(int));
+    
+            var fechaPagoParameter = fechaPago.HasValue ?
+                new ObjectParameter("fechaPago", fechaPago) :
+                new ObjectParameter("fechaPago", typeof(System.DateTime));
+    
+            var cuotaParameter = cuota.HasValue ?
+                new ObjectParameter("cuota", cuota) :
+                new ObjectParameter("cuota", typeof(decimal));
+    
+            var capitalParameter = capital.HasValue ?
+                new ObjectParameter("capital", capital) :
+                new ObjectParameter("capital", typeof(decimal));
+    
+            var interesParameter = interes.HasValue ?
+                new ObjectParameter("interes", interes) :
+                new ObjectParameter("interes", typeof(decimal));
+    
+            var balanceParameter = balance.HasValue ?
+                new ObjectParameter("balance", balance) :
+                new ObjectParameter("balance", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Usp_PagoPrestamo", idPrestamoParameter, idClienteParameter, fechaPagoParameter, cuotaParameter, capitalParameter, interesParameter, balanceParameter);
+        }
     }
 }

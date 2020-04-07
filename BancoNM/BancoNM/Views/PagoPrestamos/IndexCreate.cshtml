@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BancoNM.Prestamos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Pagar Prestamos</h2>
+
+<table class="table table-dark">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.monto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plazo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tazaPorcAnual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cuotasM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clientes.cedula)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.plazo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tazaPorcAnual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cuotasM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.cedula)
+            </td>
+            <td>
+                @Html.ActionLink("Pagar", "PagoPrestamo", new { id = item.idPrestamo })
+            </td>
+        </tr>
+    }
+
+</table>

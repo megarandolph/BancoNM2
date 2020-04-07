@@ -1,0 +1,133 @@
+﻿@model BancoNM.Prestamos
+
+@{
+    ViewBag.Title = "Pagar";
+    Layout = "~/Views/Shared/_compartido.cshtml";
+}
+
+<h2>Pago prestamo</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.idPrestamo)
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Cedula del cliente</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="idPrestamo" id="idPrestamo" value="@Model.idPrestamo" hidden />
+            <input type="text" class="form-control" name="idCliente" id="idCliente" value="@Model.idCliente" hidden />
+            @Html.DropDownList("idCliente", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idCliente, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Fecha de pago</label>
+        <div class="col-md-10">
+            <input type="date" class="form-control" name="fecha" id="fecha" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Cuota a pagar</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="cuota" id="cuota" value="@Model.cuotasM" hidden/>
+            @Html.EditorFor(model => model.cuotasM, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            @Html.ValidationMessageFor(model => model.cuotasM, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Capital</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="capital" id="capital" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">interes</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="interes" id="interes" readonly />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Balance</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="monto" id="monto" value="@Model.monto" hidden />
+            <input type="text" class="form-control" name="balance" id="balance" readonly/>
+            <input type="button" name="calcular" id="calcular" value="calcular" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" name="pagar" id="pagar" value="pagar" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+<script>
+        $("#calcular").click(function () {
+            var monto = $("#monto").val();
+            var cuota = $("#cuota").val();
+
+
+            var interes = (monto * 0.016)/12;
+            var capital = cuota - interes;
+
+            var balance = monto - capital;
+
+            $("#capital").val(capital);
+            $("#interes").val(interes);
+            $("#balance").val(balance);
+
+        });
+
+        $("#pagar").click(function () {
+            DatosA = {
+                idPrestamo: $("#idPrestamo").val(),
+                idCliente: $("#idCliente").val(),
+                fechaPago: $("#fecha").val(),
+                cuota: $("#cuota").val(),
+                capital: $("#capital").val(),
+                interes: $("#interes").val(),
+                balance: $("#balance").val()
+            };
+
+            console.log(DatosA);
+            DatosA = JSON.stringify({ DatosA: DatosA });
+            $.ajax({
+            dataType: "application/json",
+            url: "/PagoPrestamos/PagoPrestamo",
+            type: "POST",
+            data: DatosA,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                alert('Pago Realizado');
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert('Error!!');
+            },
+            complete: function () {
+                var link = "@Url.Action("Index", "Home", null)";
+                window.location.href = link;
+            }
+        });
+
+        });
+
+
+</script>
+}

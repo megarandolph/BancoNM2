@@ -45,11 +45,11 @@ namespace BancoNM.Controllers
 
             if (data == null)
             {
-                return View("Login");
+                return View("Login1");
             }
             else
             {
-                return RedirectToAction("Index", "PagoPrestamos");
+                return RedirectToAction("Indexcreate", "PagoPrestamos");
             }
         }
     }
