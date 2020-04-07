@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "Mantenimientos_";
     Layout = "~/Views/Shared/_compartido.cshtml";
+
+    if(Session["idusuario"] == null)
+    {
+        Response.Redirect("~/account/login");
+    }
+
 }
 
 <h2>Mantenimientos</h2>
@@ -10,8 +16,6 @@
     <div class="contentBoxMasterBox1">
         <div class="contentMaster">
 
-
-
             <div class="clr"></div>
 
             <div class="panelIzquierdo">
@@ -19,10 +23,8 @@
 
                     <a href="/Departamentos/index" class="btn btn-success">Departamentos</a>
                     <a href="/Cliente/index" class="btn btn-success">Clientes</a>
-                    <a href="/Empleado/index" class="btn btn-success">Empleados</a>
-                    <a href="/Nacionalidad/index" class="btn btn-success">Nacionalidades</a>
-                    <a href="/Cargo/index" class="btn btn-success">Cargos</a>
-                    <a href="/Monedas/index" class="btn btn-success">Monedas</a>
+                    <a href="/Empleado/index" class="btn btn-success">Empleados</a>                    
+                    <a href="/Cargo/index" class="btn btn-success">Cargos</a>                    
                     <a href="/CuentaA/index" class="btn btn-success">Cuenta de Ahorro</a>
                     <a href="/CreditoCA/index" class="btn btn-success">Credito a la cuenta de ahorro</a>
                     <a href="/DebitoCA/index" class="btn btn-success">Debito a la cuenta de ahorro</a>

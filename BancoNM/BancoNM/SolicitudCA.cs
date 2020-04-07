@@ -11,14 +11,19 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class SolicitudCA
     {
         public int idSolicitudCA { get; set; }
         public Nullable<int> idCliente { get; set; }
+        [DisplayName("Ingresos Mensuales")]
         public Nullable<decimal> ingresosM { get; set; }
+        [DisplayName("Justifiación de Ingresos")]
         public string justiIngreM { get; set; }
+        [DisplayName("Monto Mínimo")]
         public Nullable<decimal> montoMin { get; set; }
+        [DisplayName("Fecha")]
         public Nullable<System.DateTime> fechaA { get; set; }
     
         public virtual Clientes Clientes { get; set; }

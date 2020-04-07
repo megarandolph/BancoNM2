@@ -11,7 +11,8 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class CuentaA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +21,19 @@ namespace BancoNM
             this.CreditoCA = new HashSet<CreditoCA>();
             this.DebitoCA = new HashSet<DebitoCA>();
         }
-    
+        
         public int numCuenta { get; set; }
+        [DisplayName("Cliente")]
         public Nullable<int> idCliente { get; set; }
+        [DisplayName("Moneda")]
         public Nullable<int> idMoneda { get; set; }
+        [DisplayName("Estado")]
         public Nullable<bool> estado { get; set; }
+        [DisplayName("Balance Disponible")]
         public Nullable<decimal> balanceDisp { get; set; }
+        [DisplayName("Balance Totals")]
         public Nullable<decimal> balanceTotal { get; set; }
+        [DisplayName("Último Corte")]
         public Nullable<System.DateTime> ultimoCorte { get; set; }
     
         public virtual Clientes Clientes { get; set; }

@@ -11,7 +11,8 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Clientes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,15 +23,23 @@ namespace BancoNM
             this.SolicitudCA = new HashSet<SolicitudCA>();
             this.Prestamos = new HashSet<Prestamos>();
         }
-    
+        
         public int idCliente { get; set; }
+        [DisplayName("Nacionalidad")]
         public Nullable<int> idNacionalidad { get; set; }
+        [DisplayName("Cédula")]
         public string cedula { get; set; }
+        [DisplayName("Nombre")]
         public string nombre { get; set; }
+        [DisplayName("Apellido")]
         public string apellido { get; set; }
+        [DisplayName("Fecha de Nacimiento")]
         public Nullable<System.DateTime> fecha_nac { get; set; }
+        [DisplayName("Teléfono")]
         public string telefono { get; set; }
+        [DisplayName("Correo")]
         public string correo { get; set; }
+        [DisplayName("Profesión")]
         public string profesion { get; set; }
     
         public virtual Nacionalidad Nacionalidad { get; set; }

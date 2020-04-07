@@ -11,13 +11,19 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class CreditoCA
     {
+        [DisplayName("Número de Trasacción")]
         public int numTrans { get; set; }
+        [DisplayName("Número de Cuenta")]
         public Nullable<int> numCuenta { get; set; }
+        [DisplayName("Descripcion")]
         public string descripcion { get; set; }
+        [DisplayName("Fecha")]
         public Nullable<System.DateTime> fecha { get; set; }
+        [DisplayName("Monto")]
         public Nullable<decimal> monto { get; set; }
     
         public virtual CuentaA CuentaA { get; set; }

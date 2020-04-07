@@ -11,12 +11,17 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Usuarios
     {
+        [DisplayName("ID Usuario")]
         public int idUsuario { get; set; }
+        [DisplayName("Usuario")]
         public string usuario { get; set; }
+        [DisplayName("Contraseña")]
         public string pass { get; set; }
+        [DisplayName("Acceso")]
         public Nullable<int> acceso { get; set; }
     }
 }

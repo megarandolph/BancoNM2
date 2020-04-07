@@ -11,20 +11,29 @@ namespace BancoNM
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Empleado
     {
         public int idEmpleado { get; set; }
         public Nullable<int> idCargo { get; set; }
         public Nullable<int> idDepartamento { get; set; }
         public Nullable<int> idNacionalidad { get; set; }
+        [DisplayName("Nombre")]
         public string nombre { get; set; }
+        [DisplayName("Apellido")]
         public string apellido { get; set; }
+        [DisplayName("Cédula")]
         public string cedula { get; set; }
+        [DisplayName("Fecha de Nacimiento")]
         public Nullable<System.DateTime> fechaNac { get; set; }
+        [DisplayName("Correo")]
         public string correo { get; set; }
+        [DisplayName("Célular")]
         public string celular { get; set; }
+        [DisplayName("Fecha de Ingreso")]
         public Nullable<System.DateTime> fechaIngreso { get; set; }
+        [DisplayName("Salario")]
         public Nullable<decimal> salario { get; set; }
     
         public virtual Cargos Cargos { get; set; }

@@ -15,9 +15,6 @@
 <table class="table table-dark">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.cedula)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th>
@@ -44,9 +41,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.cedula)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.nombre)
         </td>
         <td>
@@ -68,9 +62,9 @@
             @Html.DisplayFor(modelItem => item.Nacionalidad.descripcion)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Editar", new { id=item.idCliente }) |
-            @Html.ActionLink("Details", "Detalles", new { id=item.idCliente }) |
-            @Html.ActionLink("Delete", "Borrar", new { id=item.idCliente })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idCliente }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idCliente }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.idCliente })
         </td>
     </tr>
 }
