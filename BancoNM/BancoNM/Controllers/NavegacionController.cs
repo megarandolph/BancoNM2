@@ -15,7 +15,12 @@ namespace BancoNM.Controllers
         }
         public ActionResult Consultas()
         {
-            return View();
+            if(Session["admin"] != null)
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Solicitudes()
         {

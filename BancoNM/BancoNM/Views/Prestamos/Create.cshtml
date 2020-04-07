@@ -3,31 +3,51 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_compartido.cshtml";
+
+    if (Session["idusuario"] == null)
+    {
+        Response.Redirect("~/Home/index");
+    }
 }
 
-    <h2>Prestamos</h2>
+<h2>Solicitar un prestamo</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
-    
+    @Html.AntiForgeryToken();
+
     <div class="form-horizontal">
-        
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.idCliente, "Cédula", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idCliente", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idCliente, "", new { @class = "text-danger" })
+        @if (Session["cedula"] != null)
+        {
+            <div class="form-group">
+                <label for="idCliente" class="col-md-2 control-label">C&eacute;dula del cliente:</label>
+                <div class="col-md-10">
+                    <select class="form-control" name="idCliente" id="idCliente" required>
+                        <option selected value="@Session["idusuario"].ToString()">@Session["cedula"].ToString()</option>
+                    </select>
+                </div>
             </div>
-        </div>
+        }
+        else
+        {
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idCliente, "Cédula Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("idCliente", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.idCliente, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
 
         <div class="form-group">
             @Html.LabelFor(model => model.monto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="number" class="form-control" name="monto" id="monto"/>
+                <input type="number" class="form-control" name="monto" id="monto" />
                 @*@Html.EditorFor(model => model.monto, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.monto, "", new { @class = "text-danger" })
             </div>
@@ -36,16 +56,16 @@
         <div class="form-group">
             <label class="control-label col-md-2">Plazo en meses</label>
             @*@Html.LabelFor(model => model.plazo, htmlAttributes: new { @class = "control-label col-md-2" })*@
-        <div class="col-md-10">
-            <input type="number" class="form-control" name="plazo" id="plazo"/>
-            @*@Html.EditorFor(model => model.plazo, new { htmlAttributes = new { @class = "form-control" } })*@
-            @Html.ValidationMessageFor(model => model.plazo, "", new { @class = "text-danger" })
-        </div>
+            <div class="col-md-10">
+                <input type="number" class="form-control" name="plazo" id="plazo" />
+                @*@Html.EditorFor(model => model.plazo, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.plazo, "", new { @class = "text-danger" })
+            </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.tazaPorcAnual, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">          
+            <div class="col-md-10">
                 <input type="text" class="form-control" name="tazaPorcAnual" id="tazaPorcAnual" value="1.6" readonly />
                 @*@Html.EditorFor(model => model.tazaPorcAnual, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.tazaPorcAnual, "", new { @class = "text-danger" })
@@ -58,7 +78,7 @@
                 <input type="text" class="form-control" name="cuotasM" id="cuotasM" readonly />
                 @*@Html.EditorFor(model => model.cuotasM, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.cuotasM, "", new { @class = "text-danger" })
-                <input type="button" class="form-control" name="calcular" id="calcular" value="Calcular cuota"/>
+                <input type="button" class="form-control" name="calcular" id="calcular" value="Calcular cuota" />
             </div>
         </div>
 
@@ -78,7 +98,7 @@
             var taza = $("#tazaPorcAnual").val();
             var monto = $("#monto").val();
             var plazo = $("#plazo").val();
-            
+
             var i = taza / 1200;
             Cuota = monto / ((1 - Math.pow(i + 1, -plazo)) / i);
 

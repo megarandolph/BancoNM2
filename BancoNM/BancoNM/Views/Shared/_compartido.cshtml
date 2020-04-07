@@ -20,7 +20,7 @@
         <div class="main-wrapp">
             <div class="headerBox">
                 <div class="logo">
-                    <a href="#" target="_self">
+                    <a href="/home/index" target="_self">
                         <!--[ESPECIFICAR LA RUTA AL INICIO DEL PORTAL]-->
                         <!--[SUSTITUIR ARCHIVO "logo.png" POR EL LOGO Y NOMBRE DE LA INSTITUCION]-->
                         <img src="~/Content/images/logo1.png" width="300" height="132" title="[ESPECIFICAR EL NOMBRE DE LA IMAGEN]" alt="[ESPECIFICAR EL ATRIBUTO ALTERNATICO]">
@@ -56,9 +56,12 @@
                             <a href="#">Servicios</a>
                             <ul>
                                 <li><a href="/Navegacion/solicitudes">Solicitudes</a></li>
-                                <li><a href="/account/login1">Pago de prestamos</a></li>
-                                <li><a href="/Navegacion/Consultas">Consultas</a></li>
-                                <li><a href="/account/login">Mantenimientos</a></li>
+                                @if (Session["admin"] != null)
+                                {
+                                    <li><a href="/account/login1">Pago de prestamos</a></li>
+                                    <li><a href="/Navegacion/Consultas">Consultas</a></li>
+                                    <li><a href="/account/login">Mantenimientos</a></li>
+                                }
                             </ul>
                         </li>
                         <li><a href="/Home/Contact">Contacto</a></li>

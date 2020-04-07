@@ -35,7 +35,7 @@ namespace BancoNM.Controllers
         {
             if (Session["idusuario"] != null)
             {
-                return RedirectToAction("Indexcreate", "PagoPrestamos");
+                return RedirectToAction("Solicitudes_", "Navegacion");
             }
 
             return View();
@@ -55,7 +55,7 @@ namespace BancoNM.Controllers
             {
                 Session["idusuario"] = acc.idUsuario;
                 Session["admin"] = true;
-                return RedirectToAction("Mantenimientos_","Navegacion");
+                return RedirectToAction("Index","Home");
             }
         }
         [HttpPost]
@@ -80,16 +80,17 @@ namespace BancoNM.Controllers
         public ActionResult Verify2(Clientes acc)
         {
 
-            var data = db.Clientes.Where(f => f.idCliente == acc.idCliente);
+            var data = db.Clientes.Where(f => f.cedula == acc.cedula && f.correo == acc.correo).FirstOrDefault();
 
             if (data == null)
             {
-                return View("Login1");
+                return View("Login2");
             }
             else
             {
-                Session["idusuario"] = acc.idCliente;                
-                return RedirectToAction("Indexcreate", "PagoPrestamos");
+                Session["idusuario"] = data.idCliente;
+                Session["cedula"] = acc.cedula;
+                return RedirectToAction("Solicitudes_", "Navegacion");
             }
         }
     }

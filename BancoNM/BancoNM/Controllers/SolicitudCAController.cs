@@ -54,7 +54,7 @@ namespace BancoNM.Controllers
             {
                 db.SolicitudCA.Add(solicitudCA);
                 db.SaveChanges();
-                return RedirectToAction("Index", "home");
+                return RedirectToAction("Index");
             }
 
             ViewBag.idCliente = new SelectList(db.Clientes, "idCliente", "cedula", solicitudCA.idCliente);
