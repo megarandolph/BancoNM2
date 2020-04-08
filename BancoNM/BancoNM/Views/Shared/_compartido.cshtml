@@ -65,8 +65,10 @@
                             </ul>
                         </li>
                         <li><a href="/Home/Contact">Contacto</a></li>
-                        <li><a href="#"></a></li>
-
+                        @if (Session["idusuario"] != null)
+                        {
+                            <li><a href="/Home/Logout">Salir</a></li>
+                        }
                     </ul><!--end menu-->
                 </div><!--end menu-h-Box-->
             </div><!--end menu-h-->

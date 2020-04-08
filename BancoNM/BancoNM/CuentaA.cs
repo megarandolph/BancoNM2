@@ -21,7 +21,7 @@ namespace BancoNM
             this.CreditoCA = new HashSet<CreditoCA>();
             this.DebitoCA = new HashSet<DebitoCA>();
         }
-        
+        [DisplayName("Número de Cuenta")]
         public int numCuenta { get; set; }
         [DisplayName("Cliente")]
         public Nullable<int> idCliente { get; set; }

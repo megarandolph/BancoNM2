@@ -9,22 +9,22 @@
 @using (Html.BeginForm())
 {
     <p>
-        Buscar por n&uacute;mero de cuenta: <input type="number" name="numeroCuenta" id="numeroCuenta" placeholder="N. Cuenta" />
-        Buscar por estado: <select name="estado" id="estado">
+        Buscar por n&uacute;mero de cuenta: <input type="number" class="form-control" name="numeroCuenta" id="numeroCuenta" placeholder="N. Cuenta" />
+        Buscar por estado: <select name="estado" class="form-control" id="estado">
             <option selected="selected">Sin establecer</option>
             <option value="true">Verdadero</option>
             <option value="false">Falso</option>
         </select><br />
         Buscar por moneda:
-        <select name="moneda" id="moneda">
+        <select name="moneda" class="form-control" id="moneda">
             <option>Tipo de moneda</option>
             <option value="1">Peso Dominicano</option>
             <option value="2">Euro</option>
             <option value="3">Dólar Estado Unidense</option>
         </select>
-        Buscar por balance disponible: <input type="number" name="balanceDisponible" id="balanceDisponible" placeholder="Balance Disponible" /><br />
-        Buscar por balance total: <input type="number" name="balanceTotal" id="balanceTotal" placeholder="Balance Total" />
-        Buscar por &uacute;ltimo corte: <input type="date" name="ultimoCorte" id="ultimoCorte" />
+        Buscar por balance disponible: <input type="number" class="form-control" name="balanceDisponible" id="balanceDisponible" placeholder="Balance Disponible" /><br />
+        Buscar por balance total: <input type="number" class="form-control" name="balanceTotal" id="balanceTotal" placeholder="Balance Total" />
+        Buscar por &uacute;ltimo corte: <input type="date" class="form-control" name="ultimoCorte" id="ultimoCorte" />
 
     </p>
     <input type="submit" value="Buscar" />

@@ -32,5 +32,11 @@ namespace BancoNM.Controllers
             //private Nacionalidad db = new Nacionalidad();
             return View();
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index");
+        }
     }
 }
